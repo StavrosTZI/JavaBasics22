@@ -1,4 +1,4 @@
 package com.example.javabasics.firstphase;
 
-public class Secretariy {
+public class Secretary {
 }
