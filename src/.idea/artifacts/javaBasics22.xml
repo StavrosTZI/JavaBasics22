@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="javaBasics22">
+    <output-path>$PROJECT_DIR$/out/artifacts/javaBasics22</output-path>
+    <root id="archive" name="javaBasics22.war">
+      <element id="file-copy" path="$PROJECT_DIR$/JavaBasics22.iml" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JavaBasics22" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

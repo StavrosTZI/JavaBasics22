@@ -9,9 +9,9 @@ public class Grades {
         this.course = course;
     }
 
-    private float exams;
-    private float tasks;
-    private float labs;
-    private int id;
-    private String course;
+    protected float exams;
+    protected float tasks;
+    protected float labs;
+    protected int id;
+    protected String course;
 }

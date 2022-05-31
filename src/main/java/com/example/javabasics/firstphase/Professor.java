@@ -12,9 +12,6 @@ public class Professor extends User{
         ArrayList<Grades> list1= new ArrayList<>();
         list1.add(grades);
         return list1;
-
-
-
-
     }
+
 }
