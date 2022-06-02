@@ -11,6 +11,7 @@ body{
 .header1{
     position: fixed;
     top: 25px;
+    -webkit-transform: translateZ(0);
 
 }
 .main{
