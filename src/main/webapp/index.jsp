@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Slide Navbar</title>
+    <title>MyUniversity</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <div class="header1">
 
-<h1 style="text-align: center;color: midnightblue">MyUniversity</h1>
+<h1 style="text-align: center;color: midnightblue;">MyUniversity</h1>
 </div>
 
 <div class="main">
