@@ -9,7 +9,7 @@ body{
     background: linear-gradient(to bottom, #1a66ff, #4d88ff, #80aaff);
 }
 .header1{
-    position: absolute;
+    position: fixed;
     top: 25px;
 
 }
