@@ -18,4 +18,9 @@ public class StudentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
+    private void getGrades()
+    {
+        //gets the grades from the database
+    }
 }

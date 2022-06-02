@@ -1,4 +1,4 @@
-package com.example.javabasics.firstphase;
+package com.example.javabasics.model;
 
 public class Student extends User {
     private final int registrationNumber ;

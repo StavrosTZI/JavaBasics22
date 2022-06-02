@@ -1,4 +1,4 @@
-package com.example.javabasics.firstphase;
+package com.example.javabasics.model;
 
 public class Grades {
     public Grades(float exams, float tasks, float labs, int id, String course) {

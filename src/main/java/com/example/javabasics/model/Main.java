@@ -1,8 +1,5 @@
-package com.example.javabasics.firstphase;
+package com.example.javabasics.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Main {

@@ -1,4 +1,4 @@
-package com.example.javabasics.firstphase;
+package com.example.javabasics.model;
 
 import java.util.ArrayList;
 
