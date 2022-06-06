@@ -54,17 +54,21 @@
 <body>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+    <a href="studentView.jsp">Πληροφορίες Φοιτητή</a>
+    <a href="#">Βαθμολογίες</a>
+    <a href="index.jsp">Αποσύνδεση</a>
 </div>
 
-<h1 style="text-align: center">Καλώς ήρθες στο MyUniversity!!</h1>
+<div class="header2" style="background-color: cadetblue">
+    <br>
+    <br>
+    <h1 style="text-align: center;font-family: fantasy">Καλώς ήρθες στο MyUniversity!!</h1>
+    <br>
+    <br>
+</div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-<h3 style="text-align: center">Πληροφορίες Φοιτητή</h3>
-<table style="width:50%;margin: 0px auto;">
+<h3 style="text-align: center;border: 3px solid black;width: 50%;margin: 13px auto">Πληροφορίες Φοιτητή</h3>
+<table style="width:50%;margin: 0px auto;border: 3px solid black">
 
     <tr>
         <td>Όνομα</td>
@@ -87,6 +91,12 @@
         <td>Ενεργός</td>
     </tr>
 </table>
+
+
+<br><br>
+<div style="text-align: center;">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
+</div>
 
 
 </body>
