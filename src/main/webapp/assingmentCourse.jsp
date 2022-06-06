@@ -28,10 +28,16 @@
 </div>
 
 <div align="center">
-    <button onclick="getCourses();">click here first</button>
-    <select id="courseid"></select>
+    <label>course &#8594</label>
+    <select id="courseid"></select><br>
+    <label>professor &#8594</label>
+
+    <select id="profid"></select><br>
+    <button onclick="getEls()">load data</button>
+
     <p id="gfg" style="font-size: 26px;font-weight: bold;color: green;"></p>
 </div>
+
 
 
 
@@ -48,22 +54,42 @@
 //--------
 
     var down = document.getElementById('gfg');
-    var select = document.getElementById("courseid");
-    var elmts = ["HTML", "CSS", "JS", "PHP", "jQuery"];
-    up.innerHTML = "Click on the button to "
-        + "perform the operation"+
-        ".<br>Array - [" + elmts + "]";
+    var select = document.getElementById('courseid');
+    var select2= document.getElementById('profid');
+
+    var courses = ["HTML", "CSS", "JS", "PHP", "jQuery"];
+    var professors = ["mhtsos", "mpamphs", "georgios", "takhs", "maraki"];
+
+    //up.innerHTML = "Click on the button to "
+    //    + "perform the operation"+
+    //    ".<br>Array - [" + elmts + "]";
 
     // Main function
-    function getCourses() {
-        for (var i = 0; i < elmts.length; i++) {
-            var optn = elmts[i];
+    function getEls() {
+        for (var i = 0; i < courses.length; i++) {
+            var optn = courses[i];
             var el = document.createElement("option");
             el.textContent = optn;
             el.value = optn;
             select.appendChild(el);
+
+        }
+        for (var i = 0; i < professors.length; i++) {
+            var optn2 = professors[i];
+            var el2 = document.createElement("option");
+            el2.textContent = optn2;
+            el2.value = optn2;
+            select2.appendChild(el2);
         }
         down.innerHTML = "Elements Added";
+
+
     }
+
+
+
+
+
+
 </script>
 </html>
