@@ -14,21 +14,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "SecretaryServlet", value = "/SecretaryServlet")
+
 public class SecretaryServlet extends HttpServlet {
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int test=123;
+        request.setAttribute("test",test);
+        RequestDispatcher rd= request.getRequestDispatcher("secretaryView.jsp");
+        rd.forward(request,response);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            ArrayList departments = getDepartments();
-            request.setAttribute("departments",departments);
-            request.getRequestDispatcher("secretaryView.jsp").forward(request,response);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        doGet(request,response);
+
 
     }
     public ArrayList<String> getDepartments() throws SQLException {
@@ -42,5 +44,7 @@ public class SecretaryServlet extends HttpServlet {
 
         }
         return departments;
+
     }
+
 }
