@@ -28,12 +28,8 @@
 </div>
 
 <h3> Students Information </h3>
-<% ArrayList<ArrayList> depatments = (ArrayList)request.getAttribute("departments");
+<% ArrayList<ArrayList> departments = (ArrayList)request.getAttribute("departments");
 
-    for( int i=0;i<depatments.size();i++)
-    {
-        System.out.println("Id: " + depatments.get(i));
-    }
 
 %>
 
