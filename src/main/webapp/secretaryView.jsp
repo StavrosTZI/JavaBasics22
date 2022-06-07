@@ -1,4 +1,4 @@
-
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -26,6 +26,16 @@
 <div style="text-align: center;">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
 </div>
+
+<h3> Students Information </h3>
+<% ArrayList<ArrayList> depatments = (ArrayList)request.getAttribute("departments");
+
+    for( int i=0;i<depatments.size();i++)
+    {
+        System.out.println("Id: " + depatments.get(i));
+    }
+
+%>
 
 </body>
 <script>

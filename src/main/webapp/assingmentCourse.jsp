@@ -5,6 +5,30 @@
     <title>MyUniversity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="Views.css">
+    <style>
+        .myButton {
+            box-shadow: 0px 10px 14px -7px #3e7327;
+            background: #279d5a linear-gradient(to bottom, #279d5a 5%, #279d5a 100%);
+            border-radius:7px;
+            border:2px solid #4b8f29;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:9px 22px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #5b8a3c;
+        }
+        .myButton:hover {
+            background: #72b352 linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+    </style>
 </head>
 <body>
 <div id="mySidenav" class="sidenav">
@@ -26,16 +50,20 @@
 <div style="text-align: center;">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
 </div>
-
+<br><br>
 <div align="center">
-    <label>course &#8594</label>
-    <select id="courseid"></select><br>
-    <label>professor &#8594</label>
-
-    <select id="profid"></select><br>
-    <button onclick="getEls()">load data</button>
-
+    <br><br>
+    <label style="font-size: 20px">ΜΑΘΗΜΑ &#8594</label>
+    <select id="courseid"></select><br><br><br>
+    <label style="font-size: 20px">ΚΑΘΗΓΗΤΗΣ &#8594</label>
+    <select id="profid"></select>
+    <br><br>
     <p id="gfg" style="font-size: 26px;font-weight: bold;color: green;"></p>
+    <br><br>
+    <button id="gfg2" class="myButton" style="background-color: cadetblue" onclick="getEls()">load data</button>
+
+
+
 </div>
 
 
@@ -54,6 +82,8 @@
 //--------
 
     var down = document.getElementById('gfg');
+    var down2 = document.getElementById('gfg2');
+
     var select = document.getElementById('courseid');
     var select2= document.getElementById('profid');
 
@@ -82,6 +112,8 @@
             select2.appendChild(el2);
         }
         down.innerHTML = "Elements Added";
+        down2.innerHTML = "Submit";
+
 
 
     }
