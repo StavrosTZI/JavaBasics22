@@ -3,8 +3,11 @@ package com.example.javabasics.model;
 import java.util.ArrayList;
 
 public class Professor extends User{
-    public Professor(String username, String name, String surname, String department) {
-        super(username, name, surname, department);
+
+    private Department department;
+    public Professor(int id,String username,String password, String name, String surname, Department department) {
+        super(id, username, password, name,surname);
+        this.department= department;
     }
 
     //professor adds new grade

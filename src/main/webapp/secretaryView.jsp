@@ -1,3 +1,4 @@
+<% ArrayList<String> departments = null; %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -14,7 +15,6 @@
     <a href="#">Προβολή Μαθημάτων-Καθηγητών</a>
     <a href="#">Αποσύνδεση</a>
 </div>
-
 <div class="header2" style="background-color: cadetblue">
     <br>
     <br>
@@ -28,10 +28,20 @@
 </div>
 
 <h3> Students Information </h3>
-<% ArrayList<ArrayList> departments = (ArrayList)request.getAttribute("departments");
+<% request.setAttribute("name ","johnny");%>
+<jsp:include page="/SecretaryServlet?user=me" flush="true"/>
+<%
+
+    //ArrayList<String> list1 = (ArrayList<String>) request.getAttribute("departments");
+    //for(String s: list1){
+        //out.println(s);
+
+    //}
+
 
 
 %>
+<p>name:${name}</p>
 
 </body>
 <script>

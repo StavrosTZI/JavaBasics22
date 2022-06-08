@@ -1,10 +1,12 @@
 package com.example.javabasics.model;
 
 public class User {
-    protected String username ;
-    protected String name ;
-    protected String surname ;
-    protected String department ;
+    private String username ;
+    private int id ;
+    private String password;
+    private String name ;
+    private String surname ;
+
     static int userCounter = 0;
 
     public String getUsername() {
@@ -31,20 +33,14 @@ public class User {
         this.surname = surname;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 
 
-    public User(String username,String name,String surname,String department){
+    public User(int id,String username,String password,String name,String surname){
+        this.id=id;
         this.username=username;
+        this.password=password;
         this.name=name;
         this.surname=surname;
-        this.department=department;
         userCounter++;
 
     }

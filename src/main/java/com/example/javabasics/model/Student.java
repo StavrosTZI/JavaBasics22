@@ -2,9 +2,11 @@ package com.example.javabasics.model;
 
 public class Student extends User {
     private final int registrationNumber ;
-    public Student(String username, String name, String surname, String department, int registrationNumber) {
-        super(username, name, surname, department);
+    private Department department;
+    public Student(int id,String username,String password, String name, String surname, int registrationNumber,Department department) {
+        super(id,username,password ,name, surname);
         this.registrationNumber=registrationNumber;
+        this.department =department;
 
     }
 
