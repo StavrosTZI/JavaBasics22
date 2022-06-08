@@ -1,6 +1,6 @@
-<% ArrayList<String> departments = null; %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8" %>
+
 <html>
 <head>
     <title>MyUniversity</title>
@@ -10,11 +10,12 @@
 <body>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="assingmentCourse.jsp">Ανάθεση Μαθήματος σε Καθηγητή</a>
+    <a href="assignmentCourse.jsp">Ανάθεση Μαθήματος σε Καθηγητή</a>
     <a href="#">Προβολή Συνόλου Μαθημάτων</a>
     <a href="#">Προβολή Μαθημάτων-Καθηγητών</a>
-    <a href="#">Αποσύνδεση</a>
+    <a href="index.jsp">Αποσύνδεση</a>
 </div>
+
 <div class="header2" style="background-color: cadetblue">
     <br>
     <br>
@@ -27,22 +28,8 @@
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
 </div>
 
-<h3> Students Information </h3>
-<% request.setAttribute("name ","johnny");%>
-<jsp:include page="/SecretaryServlet?user=me" flush="true"/>
-<%
-
-    //ArrayList<String> list1 = (ArrayList<String>) request.getAttribute("departments");
-    //for(String s: list1){
-        //out.println(s);
-
-    //}
-
-
-
-%>
-<p>name:${name}</p>
-
+<% //int test = (Integer)request.getAttribute("test"); %>
+<%//=test%>
 </body>
 <script>
     function openNav() {
