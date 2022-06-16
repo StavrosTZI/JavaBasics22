@@ -28,8 +28,6 @@
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
 </div>
 
-<% //int test = (Integer)request.getAttribute("test"); %>
-<%//=test%>
 </body>
 <script>
     function openNav() {

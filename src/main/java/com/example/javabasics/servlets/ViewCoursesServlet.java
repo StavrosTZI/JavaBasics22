@@ -1,12 +1,13 @@
 package com.example.javabasics.servlets;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+
 import java.io.IOException;
 
-@WebServlet(name = "AssignmentServlet", value = "/AssignmentServlet")
-public class AssignmentServlet extends HttpServlet {
+@WebServlet(name = "ViewCoursesServlet", value = "/ViewCoursesServlet")
+public class ViewCoursesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -14,7 +15,6 @@ public class AssignmentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 
     }
 }
