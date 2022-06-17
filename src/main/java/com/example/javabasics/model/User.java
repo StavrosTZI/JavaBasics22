@@ -59,7 +59,7 @@ public class User {
     public static User login(String username, String password) {
         try {
             DatabaseManager databaseManager = new DatabaseManager();
-            Connection connection = DatabaseManager.getConnection();
+            Connection connection = databaseManager.getConnection();
 
 
             Student student = Student.getFromDatabase(Query.getStudentByUsername(connection, username));

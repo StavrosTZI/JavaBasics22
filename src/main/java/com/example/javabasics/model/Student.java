@@ -16,6 +16,10 @@ public class Student extends User implements IDatabaseSupport{
         this.department =department;
 
     }
+    public Student(int id,String username,String password, String name, String surname){
+        super(id, username, password, name, surname);
+
+    }
 
     public Student(ResultSet resultSet) {
         try {
@@ -27,6 +31,7 @@ public class Student extends User implements IDatabaseSupport{
             surname= resultSet.getString("surname");
             password= resultSet.getString("password");
             registrationNumber= resultSet.getString("registration_number");
+            department = Department.valueOf(resultSet.getString("department"));
             databaseManager.closeConnection();
         } catch (SQLException ex) {
             System.out.println("An error occurred while creating scheduled appointment from result set");

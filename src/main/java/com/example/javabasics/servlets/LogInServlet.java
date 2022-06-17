@@ -39,7 +39,7 @@ public class LogInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-       DatabaseManager database = new DatabaseManager();
+       //DatabaseManager database = new DatabaseManager();
        User user = User.login(username, password);
 
 
