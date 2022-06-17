@@ -16,6 +16,7 @@ public class Student extends User implements IDatabaseSupport{
         this.department =department;
 
     }
+
     public Student(ResultSet resultSet) {
         try {
             DatabaseManager databaseManager = new DatabaseManager();

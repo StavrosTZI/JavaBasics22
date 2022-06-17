@@ -6,7 +6,7 @@
     
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>com.example.javabasics.servlets.LoginServlet</servlet-class>
+        <servlet-class>com.example.javabasics.servlets.LogInServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -14,14 +14,5 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>SecretaryServlet</servlet-name>
-        <servlet-class>com.example.javabasics.servlets.SecretaryServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>SecretaryServlet</servlet-name>
-        <url-pattern>/SecretaryServlet</url-pattern>
-    </servlet-mapping>
 
 </web-app>

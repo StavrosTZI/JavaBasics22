@@ -11,7 +11,7 @@ public class Query {
     public PreparedStatement getStatement() { return statement; }
 
     public static Query getStudentByUsername(Connection connection, String username) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("select * from \"users\" where \"username\"=?");
+        PreparedStatement statement = connection.prepareStatement("select * from users  where username=?");
         statement.setString(1, username);
         return new Query(statement);
     }
