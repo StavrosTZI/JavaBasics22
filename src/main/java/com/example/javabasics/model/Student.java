@@ -6,6 +6,7 @@ import com.example.javabasics.Utility.Query;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Student extends User implements IDatabaseSupport{
     private String registrationNumber ;
@@ -70,7 +71,32 @@ public class Student extends User implements IDatabaseSupport{
         }
     }
 
-    @Override
+
+    public static ArrayList<Student> getMultipleFromDatabase(Query query) {
+        try {
+            ResultSet resultSet = query.getStatement().executeQuery();
+            ArrayList<Student> students = new ArrayList<>();
+
+
+            while (resultSet.next()) {
+                students.add(new Student(resultSet));
+            }
+
+
+            query.getStatement().close();
+
+
+            if (students.isEmpty())
+                return null;
+            else
+                return students;
+        } catch (SQLException e) {
+            System.out.println("An error occurred while getting all students from the database");
+            return null;
+        }
+
+    }
+        @Override
     public void addToDatabase(Connection connection) {
 
     }

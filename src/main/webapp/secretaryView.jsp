@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page language="java" contentType="text/html;charset=UTF-8" %>
+<%@ page import="com.example.javabasics.model.Course" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
 <html>
 <head>
@@ -27,6 +28,37 @@
 <div style="text-align: center;">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <table style="width:50%;margin: 0px auto;border: 5px solid black;text-align: center;background-color: #fff4b0 " cellpadding="7" border="1">
+        <tr>
+            <th>ΟΝΟΜΑ ΜΑΘΗΜΑΤΟΣ</th>
+            <th>ΟΝΟΜΑ ΚΑΘΗΓΗΤΗ</th>
+            <th>ΕΞΑΜΗΝΟ</th>
+            <th>ΤΜΗΜΑ</th>
+
+
+        </tr>
+        <%
+            ArrayList<Course> courseList = (ArrayList<Course>)session.getAttribute("allCourses");
+            if (courseList != null) {
+                for (Course course: courseList) {
+                    out.println("<tr>");
+                    out.println("<td>" + course.getName() + "</td> " +
+                            "<td>" + course.getProfessor_surname() + course.getProfessor_name() + "</td> " +
+                            "<td>" + course.getSemester() + "</td> " +
+                            "<td>" + course.getDepartment().toString() + "</td> "
+                    );
+                    out.println("</tr>");
+                }
+            }
+        %>
+    </table>
+</div>
 
 </body>
 <script>
@@ -37,6 +69,16 @@
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+
+
+        addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+        function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+
 
 </script>
 </html>

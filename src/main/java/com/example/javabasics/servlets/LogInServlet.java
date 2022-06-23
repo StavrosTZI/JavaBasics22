@@ -7,8 +7,7 @@ import com.example.javabasics.model.Student;
 import com.example.javabasics.model.User;
 
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +37,7 @@ public class LogInServlet extends HttpServlet {
 
     public static void setLoggedIn(Boolean loggedIn) { isLoggedIn = loggedIn; }
 
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -47,6 +47,7 @@ public class LogInServlet extends HttpServlet {
         String password = request.getParameter("password");
 
 
+
         try {
 
             User user = User.login(username.toString(),password.toString());
@@ -54,7 +55,10 @@ public class LogInServlet extends HttpServlet {
 
 
 
-            response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("text/html; charset=UTF-8");
+            response.setCharacterEncoding("UTF-8");
+
+
             HttpSession session = request.getSession();
             if (user instanceof Student) {
                 System.out.println("The user is a student");

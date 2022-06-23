@@ -1,18 +1,37 @@
 package com.example.javabasics.model;
 
 import com.example.javabasics.Utility.DatabaseManager;
-import org.postgresql.core.Query;
+import com.example.javabasics.Utility.Query;
 
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Course {
     private int id ;
     private String name;
     private int semester ;
-    private String  professor ;
+    private String  professor_name ;
+
+    public String getProfessor_name() {
+        return professor_name;
+    }
+
+    public void setProfessor_name(String professor_name) {
+        this.professor_name = professor_name;
+    }
+
+    public String getProfessor_surname() {
+        return professor_surname;
+    }
+
+    public void setProfessor_surname(String professor_surname) {
+        this.professor_surname = professor_surname;
+    }
+
+    private String  professor_surname ;
     private Department department;
 
 
@@ -24,7 +43,8 @@ public class Course {
             id = resultSet.getInt("id");
             name = resultSet.getString("name");
             semester = resultSet.getInt("semester");
-            professor = resultSet.getString("professor");
+            professor_name = resultSet.getString("profname");
+            professor_surname = resultSet.getString("surname");
             department = Department.valueOf(resultSet.getString("department"));
 
             databaseManager.closeConnection();
@@ -34,11 +54,12 @@ public class Course {
         }
 
     }
-    public Course(int id, String name, int semester, String professor, Department department) {
+    public Course(int id, String name, int semester, String professor,String professor_surname, Department department) {
         this.id = id;
         this.name = name;
         this.semester = semester;
-        this.professor = professor;
+        this.professor_name = professor;
+        this.professor_surname=professor_surname;
         this.department = department;
     }
 
@@ -68,11 +89,11 @@ public class Course {
     }
 
     public String getProfessor() {
-        return professor;
+        return professor_name;
     }
 
     public void setProfessor(String professor) {
-        this.professor = professor;
+        this.professor_name = professor;
     }
 
     public Department getDepartment() {
@@ -88,6 +109,31 @@ public class Course {
     }
 
     public void removeFromDatabase(Connection connection) {
+
+    }
+
+    public static ArrayList<Course> getMultipleFromDatabase(Query query) {
+        try {
+            ResultSet resultSet = query.getStatement().executeQuery();
+            ArrayList<Course> courses = new ArrayList<>();
+
+
+            while (resultSet.next()) {
+                courses.add(new Course(resultSet));
+            }
+
+
+            query.getStatement().close();
+
+
+            if (courses.isEmpty())
+                return null;
+            else
+                return courses;
+        } catch (SQLException e) {
+            System.out.println("An error occurred while getting all courses from the database");
+            return null;
+        }
 
     }
     //public static Course getFromDatabase(Query query) {

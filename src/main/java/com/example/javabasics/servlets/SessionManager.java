@@ -1,28 +1,33 @@
 package com.example.javabasics.servlets;
 
+import com.example.javabasics.Utility.DatabaseManager;
+import com.example.javabasics.Utility.Query;
+import com.example.javabasics.model.Course;
 import com.example.javabasics.model.Professor;
 import com.example.javabasics.model.Secretary;
 import com.example.javabasics.model.Student;
 
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
+
+import static com.example.javabasics.Utility.Query.getAllCourses;
+import static com.example.javabasics.Utility.Query.getAllProfessors;
 
 public class SessionManager {
     public static void prepareSecretarySession(Secretary secretary, HttpSession session) {
         session.setAttribute("user", secretary);
-/*
         try {
             DatabaseManager dbManager = new DatabaseManager();
-            session.setAttribute("allDoctors", Doctor.getMultipleFromDatabase(Query.getAllDoctors(dbManager.getConnection())));
+            session.setAttribute("allCourses", Course.getMultipleFromDatabase(getAllCourses(dbManager.getConnection())));
             dbManager.closeConnection();
         } catch (SQLException e) {
-            System.out.println("An error occurred while getting all admins from the database");
+            System.out.println("An error occurred while getting all courses from the database");
             System.out.println(e.getMessage());
         }
-*/
+
     }
 
     public static void prepareProfessorSession(Professor professor, HttpSession session) {
-        // Store the patient to a session
         session.setAttribute("user", professor);
 /*
         // Get the scheduled and available appointments from the database

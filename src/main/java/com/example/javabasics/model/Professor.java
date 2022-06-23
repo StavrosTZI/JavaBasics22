@@ -52,6 +52,30 @@ public class Professor extends User implements IDatabaseSupport{
         }
     }
 
+    public static ArrayList<Professor> getMultipleFromDatabase(Query query) {
+        try {
+            ResultSet resultSet = query.getStatement().executeQuery();
+            ArrayList<Professor> professors = new ArrayList<>();
+
+
+            while (resultSet.next()) {
+                professors.add(new Professor(resultSet));
+            }
+
+
+            query.getStatement().close();
+
+
+            if (professors.isEmpty())
+                return null;
+            else
+                return professors;
+        } catch (SQLException e) {
+            System.out.println("An error occurred while getting all professors from the database");
+            return null;
+        }
+    }
+
 
     @Override
     public void addToDatabase(Connection connection) {
