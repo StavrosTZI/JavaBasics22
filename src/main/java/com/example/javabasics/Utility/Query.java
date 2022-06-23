@@ -17,13 +17,13 @@ public class Query {
     }
 
     public static Query getProfessorByUsername(Connection connection, String username) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("select * from \"users\" where \"username\"=?");
+        PreparedStatement statement = connection.prepareStatement("select * from users join professors on users.id=professors.id where users.username=? ");
         statement.setString(1, username);
         return new Query(statement);
     }
 
     public static Query getSecretaryByUsername(Connection connection, String username) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("select * from \"users\" where \"username\"=?");
+        PreparedStatement statement = connection.prepareStatement("select * from users where username=?");
         statement.setString(1, username);
         return new Query(statement);
     }

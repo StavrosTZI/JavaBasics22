@@ -20,10 +20,13 @@ public class DatabaseManager {
 
     public void  createConnection() throws SQLException {
         try {
+            Class.forName("org.postgresql.Driver");
              connection = DriverManager.getConnection(url, username, password);
         }catch (SQLException e){
             System.out.println("An error occurred while connecting to the database");
             System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 

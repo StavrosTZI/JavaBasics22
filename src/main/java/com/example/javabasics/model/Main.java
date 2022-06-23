@@ -21,13 +21,8 @@ public class Main {
                 System.out.println(rs.getString(5));
             }
             */
-            String username ="handrey3";
-            DatabaseManager databaseManager = new DatabaseManager();
-            Connection connection = databaseManager.getConnection();
-            Student student = Student.getFromDatabase(Query.getStudentByUsername(connection, username));
-
-            System.out.println(student.surname);
-            databaseManager.closeConnection();
+            User user = User.login("gfffgdf","djjdjdd");
+            System.out.println(user != null && user.password.equals("djjdjdd"));
 
             }
 

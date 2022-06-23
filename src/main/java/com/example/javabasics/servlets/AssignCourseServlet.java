@@ -4,6 +4,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
+import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 @WebServlet(name = "AssignCourseServlet", value = "/AssignCourseServlet")

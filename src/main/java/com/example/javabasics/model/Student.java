@@ -21,6 +21,10 @@ public class Student extends User implements IDatabaseSupport{
 
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
     public Student(ResultSet resultSet) {
         try {
             DatabaseManager databaseManager = new DatabaseManager();

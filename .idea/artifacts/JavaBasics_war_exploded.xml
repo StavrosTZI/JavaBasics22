@@ -16,6 +16,8 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="jsp-api" />
           <element id="library" level="project" name="servlet-api" />
+          <element id="library" level="project" name="google.code.maven.play.plugin.postgresql" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/postgresql-42.3.6.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">

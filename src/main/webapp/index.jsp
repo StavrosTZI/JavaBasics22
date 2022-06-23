@@ -17,7 +17,7 @@
 <div class="main">
 
     <div class="signup">
-        <form action="LogInServlet" method="post">
+        <form  action="LogInServlet" method="post">
             <label>Login</label>
             <input type="text" name="username" id="username" placeholder="Username" required>
             <input type="password" name="password" id="password" placeholder="Password" required>
@@ -29,6 +29,9 @@
                     out.println("<font color=red size=4px>"+login_msg+"</font>");
                 }
             %>
+
+
+
 
 
 

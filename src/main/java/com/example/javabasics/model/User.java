@@ -57,16 +57,21 @@ public class User {
 
 
     public static User login(String username, String password) {
-        try {
+
+       try{
             DatabaseManager databaseManager = new DatabaseManager();
             Connection connection = databaseManager.getConnection();
 
 
             Student student = Student.getFromDatabase(Query.getStudentByUsername(connection, username));
-            if (student != null && Objects.equals(student.password, password)) {
+
+
+
+            if (student != null && student.password.equals(password)) {
                 databaseManager.closeConnection();
                 return student;
             }
+
 
             Professor professor = Professor.getFromDatabase(Query.getProfessorByUsername(connection, username));
             if (professor != null && Objects.equals(professor.password, password)) {
@@ -83,11 +88,16 @@ public class User {
                 databaseManager.closeConnection();
                 return null;
             }
-        } catch (SQLException e) {
+
+
+        }catch (SQLException e) {
             System.out.println("An error occurred while logging in a user");
             System.out.println(e.getMessage());
             return null;
         }
+
+
+
     }
 
     public static User getFromDatabase(Connection connection, String username) {
