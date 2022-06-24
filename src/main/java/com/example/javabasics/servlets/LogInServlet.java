@@ -50,7 +50,7 @@ public class LogInServlet extends HttpServlet {
 
         try {
 
-            User user = User.login(username.toString(),password.toString());
+            User user = User.login(username,password);
 
 
 

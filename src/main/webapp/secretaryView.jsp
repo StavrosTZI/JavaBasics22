@@ -12,8 +12,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="assignmentCourse.jsp">Ανάθεση Μαθήματος σε Καθηγητή</a>
-    <a href="#">Προβολή Συνόλου Μαθημάτων</a>
-    <a href="#">Προβολή Μαθημάτων-Καθηγητών</a>
+    <a href="secretaryView.jsp">Προβολή Μαθημάτων-Καθηγητών</a>
     <a href="index.jsp">Αποσύνδεση</a>
 </div>
 
