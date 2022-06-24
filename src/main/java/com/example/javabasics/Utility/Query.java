@@ -1,6 +1,9 @@
 package com.example.javabasics.Utility;
 
+import com.example.javabasics.model.Department;
+
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -31,6 +34,11 @@ public class Query {
         return new Query(connection.prepareStatement("select * from  users join professors on users.id=professors.id"));
 
     }
+    public static Query getProfessorsByDepartment(Connection connection, Department department)throws  SQLException{
+        PreparedStatement statement =connection.prepareStatement("select * from  users join professors on users.id=professors.id where professors.department =? ");
+        statement.setString(1,department.name());
+        return  new Query(statement);
+    }
 
     public static  Query getAllStudents(Connection connection)throws SQLException{
         return new Query(connection.prepareStatement("select * from  users join students on users.id=students.id"));
@@ -50,5 +58,29 @@ public class Query {
         statement.setInt(1, id);
         return new Query(statement);
     }
+
+
+    public static Query getGradesByCourseandDate(Connection connection,String course, String date) throws SQLException {
+
+        PreparedStatement statement =connection.prepareStatement("select users.name as name ,users.surname as surname ,courses.name as course,grades.grade as grade ,grades.date as exam from courses inner join takes on courses.id =takes.course\n" +
+                "                inner join grades on takes.id=grades.takes inner join students on students.id=takes.student  inner join users on students.id =users.id where courses.name =? and grades.date =?");
+        statement.setString(1,course);
+        statement.setString(2,date);
+        return new Query(statement);
+    }
+    public static Query getGradesByStudent(Connection connection,int student)throws SQLException{
+        PreparedStatement statement = connection.prepareStatement("select users.name as name ,users.surname as surname ,courses.name as course,grades.grade as grade ,grades.date as exam from courses inner join takes on courses.id =takes.course " +
+                "inner join grades on takes.id=grades.takes inner join students on students.id=takes.student  inner join users on students.id =users.id where students.id=?");
+        statement.setInt(1,student);
+        return new Query(statement);
+    }
+    public static Query UpdateCourseProfessor(Connection connection,int professor,String course)throws  SQLException{
+        PreparedStatement statement =connection.prepareStatement("update courses set professor=? where name=? ");
+        statement.setInt(1,professor);
+        statement.setString(2,course);
+        return  new Query(statement);
+
+    }
+
 
 }

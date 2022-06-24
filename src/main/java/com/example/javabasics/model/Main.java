@@ -4,6 +4,7 @@ import com.example.javabasics.Utility.DatabaseManager;
 import com.example.javabasics.Utility.Query;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -21,8 +22,12 @@ public class Main {
                 System.out.println(rs.getString(5));
             }
             */
-            User user = User.login("nikolas13","12345");
-            System.out.println(user.name);
+            DatabaseManager databaseManager = new DatabaseManager();
+            Connection connection= databaseManager.getConnection();
+            ArrayList<Grades> grades = Grades.getMultipleFromDatabase(Query.getGradesByStudent(connection,5));
+            for (Grades g : grades){
+                System.out.println(g.getCourse()+g.getDate()+g.getStudent()+g.getGrade());
+            }
 
             }
 
