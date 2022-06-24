@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class Grades {
     private String student;
@@ -58,11 +58,10 @@ public class Grades {
         try {
             DatabaseManager databaseManager = new DatabaseManager();
             Connection connection = databaseManager.getConnection();
-            StringBuilder sb = new StringBuilder();
-            sb.append(resultSet.getString("name"));
-            sb.append(" ");
-            sb.append(resultSet.getString("surname"));
-            student =sb.toString();
+            student = resultSet.getString("name") +
+                    " " +
+                    resultSet.getString("surname");
+
             course= resultSet.getString("course");
             grade= resultSet.getInt("grade");
             date= resultSet.getString("exam");

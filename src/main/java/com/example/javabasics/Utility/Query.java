@@ -3,7 +3,7 @@ package com.example.javabasics.Utility;
 import com.example.javabasics.model.Department;
 
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -35,9 +35,9 @@ public class Query {
 
     }
     public static Query getProfessorsByDepartment(Connection connection, Department department)throws  SQLException{
-        PreparedStatement statment =connection.prepareStatement("select * from  users join professors on users.id=professors.id where professors.department =? ");
-        statment.setString(1,department.name());
-        return  new Query(statment);
+        PreparedStatement statement =connection.prepareStatement("select * from  users join professors on users.id=professors.id where professors.department =? ");
+        statement.setString(1,department.name());
+        return  new Query(statement);
     }
 
     public static  Query getAllStudents(Connection connection)throws SQLException{
@@ -69,5 +69,13 @@ public class Query {
         statement.setInt(1,student);
         return new Query(statement);
     }
+    public static Query UpdateCourseProfessor(Connection connection,int professor,String course)throws  SQLException{
+        PreparedStatement statement =connection.prepareStatement("update courses set professor=? where name=? ");
+        statement.setInt(1,professor);
+        statement.setString(2,course);
+        return  new Query(statement);
+
+    }
+
 
 }
