@@ -2,16 +2,12 @@ package com.example.javabasics.servlets;
 
 import com.example.javabasics.Utility.DatabaseManager;
 import com.example.javabasics.Utility.Query;
-import com.example.javabasics.model.Course;
-import com.example.javabasics.model.Professor;
-import com.example.javabasics.model.Secretary;
-import com.example.javabasics.model.Student;
+import com.example.javabasics.model.*;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 
-import static com.example.javabasics.Utility.Query.getAllCourses;
-import static com.example.javabasics.Utility.Query.getAllProfessors;
+import static com.example.javabasics.Utility.Query.*;
 
 public class SessionManager {
     public static void prepareSecretarySession(Secretary secretary, HttpSession session) {
@@ -29,15 +25,16 @@ public class SessionManager {
 
     public static void prepareProfessorSession(Professor professor, HttpSession session) {
         session.setAttribute("user", professor);
-/*
-        // Get the scheduled and available appointments from the database
+try{
         DatabaseManager dbManager = new DatabaseManager();
-        session.setAttribute("scheduledAppointments", patient.getScheduledAppointments(dbManager.getConnection()));
-        session.setAttribute("oldAppointments", patient.getOldAppointments(dbManager.getConnection()));
-
+        session.setAttribute("getCourses", Course.getMultipleFromDatabase(getCoursesByProfessor(dbManager.getConnection(),professor.getId())));
         dbManager.closeConnection();
+}catch (SQLException e){
+    System.out.println("An error occurred while getting all courses from the database");
+    System.out.println(e.getMessage());
+
     }
-*/
+
     }
     public static void prepareStudentSession(Student student, HttpSession session) {
         session.setAttribute("user", student);

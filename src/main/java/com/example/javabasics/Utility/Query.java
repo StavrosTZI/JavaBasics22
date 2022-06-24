@@ -45,5 +45,10 @@ public class Query {
                 "join users on professors.id = users.id"));
 
     }
+    public static Query getCoursesByProfessor(Connection connection,int id) throws SQLException{
+        PreparedStatement statement = connection.prepareStatement("select name from courses where professor=?");
+        statement.setInt(1, id);
+        return new Query(statement);
+    }
 
 }

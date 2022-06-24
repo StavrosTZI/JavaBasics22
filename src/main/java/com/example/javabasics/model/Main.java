@@ -21,8 +21,8 @@ public class Main {
                 System.out.println(rs.getString(5));
             }
             */
-            User user = User.login("gfffgdf","djjdjdd");
-            System.out.println(user != null && user.password.equals("djjdjdd"));
+            User user = User.login("nikolas13","12345");
+            System.out.println(user.name);
 
             }
 

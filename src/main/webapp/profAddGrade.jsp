@@ -1,5 +1,8 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.javabasics.model.Course" %>
+<%@ page import="java.lang.reflect.Field" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>MyUniversity</title>
@@ -33,8 +36,8 @@
 <body>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="assignmentCourse.jsp">Assignment Course to Professor </a>
-    <a href="secretaryView.jsp">Show Professors-Courses</a>
+    <a href="assignmentCourse.jsp">Add a Grade</a>
+    <a href="secretaryView.jsp">Show his/her Courses</a>
     <a href="index.jsp">Logout</a>
 </div>
 
@@ -49,24 +52,37 @@
 <div style="text-align: center;">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
 </div>
+
+
+
 <br><br>
 <div align="center">
     <br><br>
     <label style="font-size: 20px">Course &#8594</label>
     <select id="courseid"></select><br><br><br>
-    <label style="font-size: 20px">Professor &#8594</label>
-    <select id="profid"></select>
     <br><br>
     <p id="gfg" style="font-size: 26px;font-weight: bold;color: green;"></p>
     <br><br>
-    <button id="gfg2" class="myButton" style="background-color: cadetblue" onclick="getEls()">load data</button>
+    <button id="gfg3" class="myButton" style="background-color: cadetblue" onclick="getEls()" ondblclick="window.location.href='professorView.jsp'">load my courses</button>
+
+    <%ArrayList<Course> courses1 = (ArrayList<Course>)session.getAttribute("getCourses");
+ArrayList<String> test = new ArrayList<>();
+test.add("test1");
+        test.add("test2");
+    %>
+
+    <select name = "database1">
+        <c:forEach items="<%=test%>" var="databaseValue">
+            <option value="databaseValue">
+        ${databaseValue}
+        </option>
+        </c:forEach>
+        </select>
+
 
 
 
 </div>
-
-
-
 
 </body>
 <script>
@@ -78,22 +94,21 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 
-//--------
 
-    var down = document.getElementById('gfg');
-    var down2 = document.getElementById('gfg2');
+    addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
 
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+    var down1 = document.getElementById('gfg');
+    var down2 = document.getElementById('gfg3');
     var select = document.getElementById('courseid');
-    var select2= document.getElementById('profid');
 
-    var courses = ["HTML", "CSS", "JS", "PHP", "jQuery"];
-    var professors = ["mhtsos", "mpamphs", "georgios", "takhs", "maraki"];
 
-    //up.innerHTML = "Click on the button to "
-    //    + "perform the operation"+
-    //    ".<br>Array - [" + elmts + "]";
-
-    // Main function
+    //var courses = ["HTML", "CSS", "JS", "PHP", "jQuery"];
+var courses
     function getEls() {
         for (var i = 0; i < courses.length; i++) {
             var optn = courses[i];
@@ -103,18 +118,8 @@
             select.appendChild(el);
 
         }
-        for (var i = 0; i < professors.length; i++) {
-            var optn2 = professors[i];
-            var el2 = document.createElement("option");
-            el2.textContent = optn2;
-            el2.value = optn2;
-            select2.appendChild(el2);
-        }
-        down.innerHTML = "Elements Added";
-        down2.innerHTML = "Submit";
-
-
-
+        down1.innerHTML = "Courses Added";
+        down2.innerHTML = "Double click to Submit";
     }
 
 

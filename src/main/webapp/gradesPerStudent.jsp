@@ -11,7 +11,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="studentView.jsp">Student Informations</a>
-    <a href="gradesPerStudent.jsp">Grades</a>
+    <a href="#">Grades</a>
     <a href="index.jsp">Logout</a>
 </div>
 
@@ -22,30 +22,17 @@
     <br>
     <br>
 </div>
+<br><br>
+<h2 style="text-align: center">STUDENT'S GRADES</h2>
+<br><br>
+<table style="width:50%;margin: 0px auto;border: 5px solid black;text-align: center;background-color: #fff4b0 " cellpadding="7" border="1">
+    <tr>
+        <th>COURSE NAME</th>
+        <th>PROFESSOR'S NAME</th>
+        <th>SEMESTER</th>
+        <th>GRADE</th>
+    </tr>
 
-<h3 style="text-align: center;border: 3px solid black;width: 50%;margin: 13px auto">Student Informations</h3>
-<table style="width:50%;margin: 0px auto;border: 3px solid black">
-
-    <tr>
-        <td>Name</td>
-        <td>#name</td>
-    </tr>
-    <tr>
-        <td>Surname</td>
-        <td>#surmname</td>
-    </tr>
-    <tr>
-        <td>Registration number</td>
-        <td>#reg_num</td>
-    </tr>
-    <tr>
-        <td>Department</td>
-        <td>#depurtmen</td>
-    </tr>
-    <tr>
-        <td>Student Status</td>
-        <td>Active</td>
-    </tr>
 </table>
 
 

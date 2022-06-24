@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Objects;
 
-public class User {
+public class    User {
     protected String username ;
     protected int id ;
     protected String password;
@@ -120,4 +120,7 @@ public class User {
         }
     }
 
+    public int getId() {
+        return id;
+    }
 }

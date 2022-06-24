@@ -11,15 +11,15 @@
 <body>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="assignmentCourse.jsp">Ανάθεση Μαθήματος σε Καθηγητή</a>
-    <a href="secretaryView.jsp">Προβολή Μαθημάτων-Καθηγητών</a>
-    <a href="index.jsp">Αποσύνδεση</a>
+    <a href="assignmentCourse.jsp">Assignment Course to Professor </a>
+    <a href="secretaryView.jsp">Show Professors-Courses</a>
+    <a href="index.jsp">Logout</a>
 </div>
 
 <div class="header2" style="background-color: cadetblue">
     <br>
     <br>
-    <h1 style="text-align: center;font-family: fantasy">Καλώς ήρθες στο MyUniversity!!</h1>
+    <h1 style="text-align: center;font-family: fantasy">Welcome to MyUniversity!!</h1>
     <br>
     <br>
 </div>
@@ -35,10 +35,10 @@
 <div>
     <table style="width:50%;margin: 0px auto;border: 5px solid black;text-align: center;background-color: #fff4b0 " cellpadding="7" border="1">
         <tr>
-            <th>ΟΝΟΜΑ ΜΑΘΗΜΑΤΟΣ</th>
-            <th>ΟΝΟΜΑ ΚΑΘΗΓΗΤΗ</th>
-            <th>ΕΞΑΜΗΝΟ</th>
-            <th>ΤΜΗΜΑ</th>
+            <th>COURSE NAME</th>
+            <th>PROFESSOR'S NAME</th>
+            <th>SEMESTER</th>
+            <th>DEPARTMENT</th>
 
 
         </tr>
