@@ -32,6 +32,9 @@
         <th>SEMESTER</th>
         <th>GRADE</th>
     </tr>
+    <tr>
+
+    </tr>
 
 </table>
 

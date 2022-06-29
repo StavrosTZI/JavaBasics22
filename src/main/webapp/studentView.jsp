@@ -1,4 +1,6 @@
 <%@ page import="com.example.javabasics.model.Student" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.javabasics.model.Department" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,23 +27,30 @@
 
 <h3 style="text-align: center;border: 3px solid black;width: 50%;margin: 13px auto">Student Informations</h3>
 <table style="width:50%;margin: 0px auto;border: 3px solid black">
+    <%// Student basicData = (Student)session.getAttribute("getBasicData");
+        Student basicData = new Student(123,"kostakis","12edwd","mpamphs","georgiou","12345", Department.Biology);
+    %>
 
-    <tr>
-        <td>Name</td>
-        <td>#name</td>
-    </tr>
-    <tr>
+        <tr>
+            <td>Name</td>
+            <td><%=basicData.getName()%></td>
+        </tr>
+
+
+        <tr>
         <td>Surname</td>
-        <td>#surmname</td>
-    </tr>
-    <tr>
-        <td>Registration number</td>
-        <td>#reg_num</td>
-    </tr>
-    <tr>
+        <td><%=basicData.getSurname()%></td>
+        </tr>
+
+        <tr>
+        <td>RegistrationNumber</td>
+        <td><%=basicData.getRegistrationNumber()%></td>
+        </tr>
+
+        <tr>
         <td>Department</td>
-        <td>#depurtmen</td>
-    </tr>
+        <td><%=basicData.getDepartment().toString()%></td>
+        </tr>
     <tr>
         <td>Student Status</td>
         <td>Active</td>

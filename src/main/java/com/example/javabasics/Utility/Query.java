@@ -81,6 +81,12 @@ public class Query {
         return  new Query(statement);
 
     }
+    public static Query getBasicDataFromId(Connection connection,int id)throws  SQLException{
+        PreparedStatement statement =connection.prepareStatement("select name,surname,registration_number,department from users inner join students on users.id=students.id where users.id=?");
+        return  new Query(statement);
+
+    }
+
 
 
 }

@@ -38,14 +38,16 @@ try{
     }
     public static void prepareStudentSession(Student student, HttpSession session) {
         session.setAttribute("user", student);
-/*
-        // Get the scheduled and available appointments from the database
-        DatabaseManager dbManager = new DatabaseManager();
-        session.setAttribute("appointmentsList", doctor.getScheduledAppointments(dbManager.getConnection()));
-
-        dbManager.closeConnection();
+        try {
+            DatabaseManager dbManager = new DatabaseManager();
+            session.setAttribute("getBasicData", Student.getMultipleFromDatabase(getBasicDataFromId(dbManager.getConnection(),student.getId())));
+            session.setAttribute("getStudentsGrades", Student.getMultipleFromDatabase(getGradesByStudent(dbManager.getConnection(),student.getId())));
+            dbManager.closeConnection();
+        }catch (SQLException e){
+            System.out.println("An error occurred while getting students data from the database");
+            System.out.println(e.getMessage());
+        }
     }
-*/
     }
 
-}
+
