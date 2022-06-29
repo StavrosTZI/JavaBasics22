@@ -27,8 +27,8 @@
 
 <h3 style="text-align: center;border: 3px solid black;width: 50%;margin: 13px auto">Student Informations</h3>
 <table style="width:50%;margin: 0px auto;border: 3px solid black">
-    <%// Student basicData = (Student)session.getAttribute("getBasicData");
-        Student basicData = new Student(123,"kostakis","12edwd","mpamphs","georgiou","12345", Department.Biology);
+    <%  Student basicData = (Student)session.getAttribute("getBasicData");
+        //Student basicData = new Student(123,"kostakis","12edwd","mpamphs","georgiou","12345", Department.Biology);
     %>
 
         <tr>
@@ -49,7 +49,7 @@
 
         <tr>
         <td>Department</td>
-        <td><%=basicData.getDepartment().toString()%></td>
+        <td><%=basicData.getDepartment()%></td>
         </tr>
     <tr>
         <td>Student Status</td>

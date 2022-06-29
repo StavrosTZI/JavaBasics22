@@ -1,4 +1,6 @@
 <%@ page import="com.example.javabasics.model.Student" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.javabasics.model.Grades" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,13 +30,21 @@
 <table style="width:50%;margin: 0px auto;border: 5px solid black;text-align: center;background-color: #fff4b0 " cellpadding="7" border="1">
     <tr>
         <th>COURSE NAME</th>
-        <th>PROFESSOR'S NAME</th>
         <th>SEMESTER</th>
         <th>GRADE</th>
     </tr>
-    <tr>
-
-    </tr>
+   <% ArrayList<Grades> grades = (ArrayList<Grades>)session.getAttribute("getStudentsGrades");
+       if (grades != null) {
+           for (Grades course: grades) {
+               out.println("<tr>");
+               out.println("<td>" + course.getCourse() + "</td> "+
+                       "<td>" + course.getDate() + "</td> " +
+                       "<td>" + course.getGrade() + "</td> "
+               );
+               out.println("</tr>");
+           }
+       }
+   %>
 
 </table>
 

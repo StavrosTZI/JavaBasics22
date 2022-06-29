@@ -1,6 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.javabasics.model.Course" %>
-<%@ page import="java.lang.reflect.Array" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
 <html>
@@ -30,44 +29,33 @@
 </div>
 <br>
 <br>
-
+<%String courseName = (String)session.getAttribute("");%>
+<h3></h3>
 <br>
 <br>
 <br>
 <div>
     <table style="width:50%;margin: 0px auto;border: 5px solid black;text-align: center;background-color: #fff4b0 " cellpadding="7" border="1">
         <tr>
-            <th>COURSE NAME</th>
+            <th>STUDENT ID</th>
             <th>SEMESTER</th>
-            <th>DEPARTMENT</th>
+            <th>GRADE</th>
 
 
         </tr>
         <%
             ArrayList<Course> courseList = (ArrayList<Course>)session.getAttribute("getCourses");
-
-int i=0;
             if (courseList != null) {
                 for (Course course: courseList) {%>
+        <tr>
+            <td> <a href="login.jsp"><%=course.getName()%></a> </td>
+            <td> <%=course.getSemester()%> </td>
 
-                    <tr>
-                    <td onload="clicked()"><%=course.getName()%> </td>
-                            <td> <%=course.getSemester()%> </td>
-                            <td> <%=course.getDepartment()%></td>
+            <td> <%=course.getDepartment()%></td>
 
-<script>
-    function clicked() {
-
-
-
-}
-</script>
-
-
-                    </tr>
-
-               <% i++;}
-            }%>
+        </tr>
+        <% }
+        }%>
 
     </table>
 </div>
@@ -90,12 +78,6 @@ int i=0;
     function hideURLbar() {
         window.scrollTo(0, 1);
     }
-
-
-
-
-
-
 
 
 </script>

@@ -24,9 +24,9 @@ public class Main {
             */
             DatabaseManager databaseManager = new DatabaseManager();
             Connection connection= databaseManager.getConnection();
-            ArrayList<Grades> grades = Grades.getMultipleFromDatabase(Query.getGradesByStudent(connection,5));
-            for (Grades g : grades){
-                System.out.println(g.getCourse()+g.getDate()+g.getStudent()+g.getGrade());
+            ArrayList<Course> courses = Course.getMultipleFromDatabase(Query.getCoursesByProfessor(connection,90));
+            for (Course g : courses){
+                System.out.println(g.getDepartment() +" "+ g.getSemester());
             }
 
             }

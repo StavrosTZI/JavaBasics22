@@ -54,7 +54,7 @@ public class Query {
 
     }
     public static Query getCoursesByProfessor(Connection connection,int id) throws SQLException{
-        PreparedStatement statement = connection.prepareStatement("select name from courses where professor=?");
+        PreparedStatement statement = connection.prepareStatement("select courses.id,courses.name,courses.semester,users.name as profname,users.surname,courses.department from courses join professors on courses.professor=professors.id join users on professors.id = users.id where professors.id=?");
         statement.setInt(1, id);
         return new Query(statement);
     }
@@ -82,7 +82,8 @@ public class Query {
 
     }
     public static Query getBasicDataFromId(Connection connection,int id)throws  SQLException{
-        PreparedStatement statement =connection.prepareStatement("select name,surname,registration_number,department from users inner join students on users.id=students.id where users.id=?");
+        PreparedStatement statement =connection.prepareStatement("select * from users inner join students on users.id=students.id where users.id=?");
+        statement.setInt(1,id);
         return  new Query(statement);
 
     }

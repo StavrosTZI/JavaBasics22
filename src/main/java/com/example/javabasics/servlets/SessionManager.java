@@ -27,7 +27,7 @@ public class SessionManager {
         session.setAttribute("user", professor);
 try{
         DatabaseManager dbManager = new DatabaseManager();
-        session.setAttribute("getCourses", Course.getMultipleFromDatabase(getCoursesByProfessor(dbManager.getConnection(),professor.getId())));
+            session.setAttribute("getCourses", Course.getMultipleFromDatabase(getCoursesByProfessor(dbManager.getConnection(),professor.getId())));
         dbManager.closeConnection();
 }catch (SQLException e){
     System.out.println("An error occurred while getting all courses from the database");
@@ -40,8 +40,8 @@ try{
         session.setAttribute("user", student);
         try {
             DatabaseManager dbManager = new DatabaseManager();
-            session.setAttribute("getBasicData", Student.getMultipleFromDatabase(getBasicDataFromId(dbManager.getConnection(),student.getId())));
-            session.setAttribute("getStudentsGrades", Student.getMultipleFromDatabase(getGradesByStudent(dbManager.getConnection(),student.getId())));
+            session.setAttribute("getBasicData", Student.getFromDatabase(getBasicDataFromId(dbManager.getConnection(),student.getId())));
+            session.setAttribute("getStudentsGrades", Grades.getMultipleFromDatabase(getGradesByStudent(dbManager.getConnection(),student.getId())));
             dbManager.closeConnection();
         }catch (SQLException e){
             System.out.println("An error occurred while getting students data from the database");

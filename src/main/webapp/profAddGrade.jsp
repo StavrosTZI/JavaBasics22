@@ -66,19 +66,8 @@
     <button id="gfg3" class="myButton" style="background-color: cadetblue" onclick="getEls()" ondblclick="window.location.href='professorView.jsp'">load my courses</button>
 
     <%ArrayList<Course> courses1 = (ArrayList<Course>)session.getAttribute("getCourses");
-ArrayList<String> test = new ArrayList<>();
-test.add("test1");
-        test.add("test2");
+
     %>
-
-    <select name = "database1">
-        <c:forEach items="<%=test%>" var="databaseValue">
-            <option value="databaseValue">
-        ${databaseValue}
-        </option>
-        </c:forEach>
-        </select>
-
 
 
 

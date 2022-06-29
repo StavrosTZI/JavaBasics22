@@ -93,7 +93,7 @@ public class Grades {
             else
                 return grades;
         } catch (SQLException e) {
-            System.out.println("An error occurred while getting all students from the database");
+            System.out.println("An error occurred while getting all grades from the database");
             return null;
         }
 
