@@ -87,6 +87,27 @@ public class Query {
         return  new Query(statement);
 
     }
+    public static Query updateCourseProfessor(Connection connection,String course, int prof) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("update courses set professor=? where name=? ");
+        statement.setInt(1,prof);
+        statement.setString(2,course);
+        return new Query(statement);
+    }
+
+    public static Query checkTakes(Connection connection,int student,String course)throws SQLException{
+        PreparedStatement statement =connection.prepareStatement("select takes.id as takes from takes inner join courses on takes.course=courses.id where takes.student=? and courses.name=? ");
+        statement.setInt(1,student);
+        statement.setString(2,course);
+        return new Query(statement);
+    }
+    public static  Query addGrade(Connection connection,int id ,int takes ,int grade, String  date)throws SQLException{
+        PreparedStatement statement = connection.prepareStatement("insert into grades (id,takes,grade,date) values(?,?,?,?)");
+        statement.setInt(1,id);
+        statement.setInt(2,takes);
+        statement.setInt(3,grade);
+        statement.setString(4,date);
+        return new Query(statement);
+    }
 
 
 

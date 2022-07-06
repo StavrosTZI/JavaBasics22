@@ -6,7 +6,7 @@
     <title>MyUniversity</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
+<body>
 <div class="header1">
 
 <h1 style="text-align: center;color: midnightblue;">MyUniversity</h1>

@@ -15,5 +15,25 @@
         <url-pattern>/LogInServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AssignCourseServlet</servlet-name>
+        <servlet-class>com.example.javabasics.servlets.AssignCourseServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AssignCourseServlet</servlet-name>
+        <url-pattern>/AssignCourseServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddGradeServlet</servlet-name>
+        <servlet-class>com.example.javabasics.servlets.AddGradeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddGradeServlet</servlet-name>
+        <url-pattern>/AddGradeServlet</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

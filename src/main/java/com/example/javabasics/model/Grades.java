@@ -3,13 +3,15 @@ package com.example.javabasics.model;
 import com.example.javabasics.Utility.DatabaseManager;
 import com.example.javabasics.Utility.Query;
 
+import java.io.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public class Grades {
+public class Grades implements Serializable {
+    public static Integer gradeid =15;
     private String student;
     private String course;
     private int grade;
@@ -98,5 +100,6 @@ public class Grades {
         }
 
     }
+
 }
 

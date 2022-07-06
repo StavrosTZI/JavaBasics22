@@ -2,6 +2,8 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="jar://$USER_HOME$/Downloads/postgresql-42.3.6.jar!/" />
+    <file type="web" url="jar://$PROJECT_DIR$/lib/jakarta.servlet.jsp.jstl-api-1.2.7.jar!/" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

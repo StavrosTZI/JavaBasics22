@@ -3,6 +3,7 @@
 <%@ page import="java.lang.reflect.Field" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 
+
 <html>
 <head>
     <title>MyUniversity</title>
@@ -53,21 +54,38 @@
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
 </div>
 
-
-
-<br><br>
+<br><br><br><br>
 <div align="center">
-    <br><br>
-    <label style="font-size: 20px">Course &#8594</label>
-    <select id="courseid"></select><br><br><br>
-    <br><br>
-    <p id="gfg" style="font-size: 26px;font-weight: bold;color: green;"></p>
-    <br><br>
-    <button id="gfg3" class="myButton" style="background-color: cadetblue" onclick="getEls()" ondblclick="window.location.href='professorView.jsp'">load my courses</button>
+    <form action="AddGradeServlet" method="post">
+        <label>Student Id</label>
+        <input type="text" name="student" id="student" placeholder="Student Id" required>
+        <br><br>
+        <label>Course</label>
+        <input  type="text" name="course" id="course" placeholder="Course" required><br>
+        <br>
+        <label>Grade</label>
+        <input  type="text" name="grade" id="grade" placeholder="Grade" required><br>
+        <br>
+        <label>Date</label>
+        <input  type="text" name="date" id="date" placeholder="Date" required><br>
+        <br>
 
-    <%ArrayList<Course> courses1 = (ArrayList<Course>)session.getAttribute("getCourses");
+        <button class="myButton">Submit</button>
+    </form>
 
+    <%
+        String suc = (String)request.getAttribute("suc");
+        if(suc != null) {
+            out.println("<font color=#3e7327 size=4px>"+suc+"</font>");
+        }
     %>
+    <%
+        String errormsg = (String)request.getAttribute("error");
+        if(errormsg != null) {
+            out.println("<font color=red size=4px>"+errormsg+"</font>");
+        }
+    %>
+
 
 
 
@@ -91,25 +109,7 @@
     function hideURLbar() {
         window.scrollTo(0, 1);
     }
-    var down1 = document.getElementById('gfg');
-    var down2 = document.getElementById('gfg3');
-    var select = document.getElementById('courseid');
 
-
-    //var courses = ["HTML", "CSS", "JS", "PHP", "jQuery"];
-var courses
-    function getEls() {
-        for (var i = 0; i < courses.length; i++) {
-            var optn = courses[i];
-            var el = document.createElement("option");
-            el.textContent = optn;
-            el.value = optn;
-            select.appendChild(el);
-
-        }
-        down1.innerHTML = "Courses Added";
-        down2.innerHTML = "Double click to Submit";
-    }
 
 
 

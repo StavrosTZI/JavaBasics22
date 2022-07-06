@@ -1,4 +1,4 @@
-
+<%@ page import="com.example.javabasics.servlets.AssignCourseServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -46,26 +46,41 @@
     <br>
 </div>
 
+
+
+<br><br>
+<div align="center">
+  <form action="AssignCourseServlet" method="post">
+      <label>Course</label>
+      <input type="text" name="course" id="course" placeholder="Course Name" required>
+      <br>
+      <label>Professor</label>
+      <input  type="text" name="prof" id="prof" placeholder="Professor Surname" required><br>
+      <button class="myButton">Submit</button>
+
+
+
+  </form>
+
+    <%
+        String errormsg = (String)request.getAttribute("error");
+        if(errormsg != null) {
+            out.println("<font color=red size=4px>"+errormsg+"</font>");
+        }
+    %>
+    <%
+        String success = (String)request.getAttribute("ok");
+        if(success != null) {
+            out.println("<font color=#3e7327 size=4px>"+success+"</font>");
+        }
+    %>
+
+
+</div>
+
 <div style="text-align: center;">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; menu </span>
 </div>
-<br><br>
-<div align="center">
-    <br><br>
-    <label style="font-size: 20px">Course &#8594</label>
-    <select id="courseid"></select><br><br><br>
-    <label style="font-size: 20px">Professor &#8594</label>
-    <select id="profid"></select>
-    <br><br>
-    <p id="gfg" style="font-size: 26px;font-weight: bold;color: green;"></p>
-    <br><br>
-    <button id="gfg2" class="myButton" style="background-color: cadetblue" onclick="getEls()">load data</button>
-
-
-
-</div>
-
-
 
 
 </body>
@@ -78,44 +93,9 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 
-//--------
-
-    var down = document.getElementById('gfg');
-    var down2 = document.getElementById('gfg2');
-
-    var select = document.getElementById('courseid');
-    var select2= document.getElementById('profid');
-
-    var courses = ["HTML", "CSS", "JS", "PHP", "jQuery"];
-    var professors = ["mhtsos", "mpamphs", "georgios", "takhs", "maraki"];
-
-    //up.innerHTML = "Click on the button to "
-    //    + "perform the operation"+
-    //    ".<br>Array - [" + elmts + "]";
-
-    // Main function
-    function getEls() {
-        for (var i = 0; i < courses.length; i++) {
-            var optn = courses[i];
-            var el = document.createElement("option");
-            el.textContent = optn;
-            el.value = optn;
-            select.appendChild(el);
-
-        }
-        for (var i = 0; i < professors.length; i++) {
-            var optn2 = professors[i];
-            var el2 = document.createElement("option");
-            el2.textContent = optn2;
-            el2.value = optn2;
-            select2.appendChild(el2);
-        }
-        down.innerHTML = "Elements Added";
-        down2.innerHTML = "Submit";
 
 
 
-    }
 
 
 

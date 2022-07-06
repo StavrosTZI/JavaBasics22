@@ -1,6 +1,7 @@
 package com.example.javabasics.servlets;
 
 import com.example.javabasics.Utility.DatabaseManager;
+import com.example.javabasics.Utility.HashPass;
 import com.example.javabasics.model.Professor;
 import com.example.javabasics.model.Secretary;
 import com.example.javabasics.model.Student;
@@ -15,8 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.sql.SQLException;
 import java.util.Objects;
+
+import static com.example.javabasics.Utility.HashPass.getSalt;
+import static com.example.javabasics.Utility.HashPass.getSecurePassword;
 
 @WebServlet(name = "LogInServlet", value = "/LogInServlet")
 public class LogInServlet extends HttpServlet {
@@ -45,12 +51,16 @@ public class LogInServlet extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        /*String salt = HashPass.salt;
 
-
+        String password1  = getSecurePassword(password, salt);
+*/
 
         try {
 
             User user = User.login(username,password);
+            System.out.println(password);
+            System.out.println(password);
 
 
 
