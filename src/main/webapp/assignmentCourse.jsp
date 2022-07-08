@@ -55,7 +55,7 @@
       <input type="text" name="course" id="course" placeholder="Course Name" required>
       <br>
       <label>Professor</label>
-      <input  type="text" name="prof" id="prof" placeholder="Professor Surname" required><br>
+      <input  type="text" name="prof" id="prof" placeholder="Professor ID" required><br>
       <button class="myButton">Submit</button>
 
 
